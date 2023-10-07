@@ -13,15 +13,26 @@
     />
   </head>
   <nav>
-    <div>
-      <h1>Jude Richardson, Pianist</h1>
+    <div id="nav-main">
+      <div>
+        <h1>Jude Richardson, Pianist</h1>
+      </div>
+      <div id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="music.html">Music</a>
+      </div>
+      <div id="hamburger" onclick="hamburger()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
     </div>
-    <div id="nav-links">
+    <div id="nav-links-hidden">
       <a href="index.html">Home</a>
       <a href="music.html">Music</a>
     </div>
   </nav>
-  <body>
+  <body onresize="checkWidth()">
     <!--remove inline style-->
     <img src="home_img.JPG" id="home_img" />
     <div class="content">
@@ -122,5 +133,7 @@
         </p>
       </div>
     </footer>
+
+    <script src="interact.js"></script>
   </body>
 </html>

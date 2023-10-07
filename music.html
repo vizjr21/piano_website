@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jude Richardson</title>
+    <meta name="format-detection" content="telephone=no" />
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Catamaran"
@@ -12,15 +13,26 @@
     />
   </head>
   <nav>
-    <div>
-      <h1>Jude Richardson, Pianist</h1>
+    <div id="nav-main">
+      <div>
+        <h1>Jude Richardson, Pianist</h1>
+      </div>
+      <div id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="music.html">Music</a>
+      </div>
+      <div id="hamburger" onclick="hamburger()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
     </div>
-    <div id="nav-links">
+    <div id="nav-links-hidden">
       <a href="index.html">Home</a>
       <a href="music.html">Music</a>
     </div>
   </nav>
-  <body>
+  <body onresize="checkWidth()">
     <!--remove inline styles from iframe-->
     <iframe
       id="youtube"
@@ -84,5 +96,7 @@
         </ul>
       </div>
     </div>
+
+    <script src="interact.js"></script>
   </body>
 </html>

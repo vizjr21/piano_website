@@ -6,12 +6,34 @@ body {
 nav {
     background-color: #F6F4F4;
     height: 75px;
-    display:flex; 
+    overflow: hidden;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px 0 30px;
 }
 
+nav.expand {
+    height: 132px;
+    transition: height 0.5s ease-in 0.3s; 
+}
+
+#nav-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav-links-hidden {
+    margin-top: 5px;
+    padding: 0;
+    text-align: center;
+}
+
+#nav-links-hidden > a {
+    display: block;
+    padding: 0;
+    margin: 5px 45%;
+}
 h1 {
     font-size: 1.25rem; 
 }
@@ -72,6 +94,21 @@ footer > div > h2 {
 }
 
 @media only screen and (max-width: 600px) {
+    #nav-links {
+        display: none;
+    }
+
+    #hamburger {
+        display: block;
+    }
+
+    .line {
+        height: 4px;
+        width: 35px;
+        margin-top: 3px;
+        border-radius: 2px;
+        background-color: #404040;
+    }
     footer > div > a, footer > div > p {
         width: 90%;
         margin: 0;
@@ -86,6 +123,14 @@ footer > div > h2 {
 }
 
 @media only screen and (min-width: 601px) {
+    #hamburger {
+        display: none;
+    }
+
+    #nav-links-hidden {
+        display: none;
+    }
+
     footer > div > a, footer > div > p {
         width: 90%;
         margin: 0;
@@ -98,8 +143,6 @@ footer > div > h2 {
         padding: 0 5% 0 5%;
     }
 }
-
-
 
 #youtube {
     width: 90%;
