@@ -85,3 +85,7 @@ footer > div > p {
     height: 600px;
     margin: 5% 5% 0 5%;
 }
+
+.info {
+    font-size: 1.05rem;
+}
