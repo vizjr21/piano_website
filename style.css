@@ -42,7 +42,7 @@ a:hover {
 }
 
 .content {
-
+    text-align: justify;
     width: 90%;
     margin: 0 5% 0 5%;
 }
@@ -71,7 +71,11 @@ footer > div > h2 {
     padding: 0 5% 0 5%;
 }
 
-footer > div > p {
+footer > div > a, footer > div > p {
+    width: 90%;
+    margin: 0;
+    padding: 0 5% 0 5%;
+    display: block;
     text-align: center;
     color: #F6F4F4; 
     padding: 0 5% 0 5%;
