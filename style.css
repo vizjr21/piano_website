@@ -19,10 +19,6 @@ h2 {
     font-size: 0.95rem; 
 }
 
-p {
-    font-size: 0.78rem;
-}
-
 #nav-links > a {
     padding-left: 80px;
 }
@@ -84,8 +80,4 @@ footer > div > p {
     width: 90%;
     height: 600px;
     margin: 5% 5% 0 5%;
-}
-
-.info {
-    font-size: 1.05rem;
 }
