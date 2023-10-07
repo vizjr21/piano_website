@@ -55,7 +55,7 @@ footer {
     display: flex;
     justify-content: space-evenly;
     width: 90%;
-    height: 325px;
+    min-height: 325px;
     margin: 8% 5% 0 5%; 
 }
 
@@ -74,6 +74,8 @@ footer > div > h2 {
 footer > div > a, footer > div > p {
     width: 90%;
     margin: 0;
+    word-wrap: break-word;
+    font-size: 0.9rem;
     padding: 0 5% 0 5%;
     display: block;
     text-align: center;
