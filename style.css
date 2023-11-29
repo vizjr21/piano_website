@@ -93,6 +93,10 @@ footer > div > h2 {
     padding: 0 5% 0 5%;
 }
 
+.upcoming {
+    height: 325px;
+}
+
 @media only screen and (max-width: 600px) {
     #nav-links {
         display: none;
