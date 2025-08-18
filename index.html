@@ -148,5 +148,28 @@
     </footer>
 
     <script src="interact.js"></script>
+    <script>
+    // Replace with your CSV export link
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQeDf64E-vjTpUvIL5ZvAmfCLkAboUD7I-EzB_qF3awIKzRzfAkUSrr0MhJ-VIifEHHuw-q2sInuuiS/export?format=csv";
+
+    axios.get(sheetUrl)
+      .then(response => {
+        // CSV parsing example
+        const csvText = response.data;
+        const rows = csvText.split("\n").map(row => row.split(","));
+        
+        // Display in the page
+        let html = "<table border='1'>";
+        rows.forEach(r => {
+          html += "<tr>" + r.map(cell => `<td>${cell}</td>`).join('') + "</tr>";
+        });
+        html += "</table>";
+
+        document.getElementById("data").innerHTML = html;
+      })
+      .catch(error => {
+        console.error("Error fetching Google Sheet:", error);
+      });
+  </script>
   </body>
 </html>
