@@ -112,6 +112,8 @@
       </div>
     </div>
 
+    <div id="data">Loading...</div>
+
     <footer>
       <div>
         <h2>Instagram</h2>
@@ -150,25 +152,24 @@
     <script src="interact.js"></script>
     <script>
     // Replace with your CSV export link
-    const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQeDf64E-vjTpUvIL5ZvAmfCLkAboUD7I-EzB_qF3awIKzRzfAkUSrr0MhJ-VIifEHHuw-q2sInuuiS/export?format=csv";
+    const sheetUrl = "https://your-express-host.com/sheet?range=Sheet1!A1:D10"; 
 
     axios.get(sheetUrl)
       .then(response => {
-        // CSV parsing example
-        const csvText = response.data;
-        const rows = csvText.split("\n").map(row => row.split(","));
-        
-        // Display in the page
-        let html = "<table border='1'>";
-        rows.forEach(r => {
-          html += "<tr>" + r.map(cell => `<td>${cell}</td>`).join('') + "</tr>";
-        });
-        html += "</table>";
 
+        const entries = response.data.feed.entry;
+        let html = "<ul>";
+        entries.forEach(row => {
+          // Example: get values by column header name (lowercase, no spaces)
+          html += `<li>${name} – ${date}</li>`;
+        });
+        html += "</ul>";
         document.getElementById("data").innerHTML = html;
+        
       })
-      .catch(error => {
-        console.error("Error fetching Google Sheet:", error);
+      .catch(err => {
+        console.error("Error:", err);
+        document.getElementById("data").innerText = "Failed to load data.";
       });
   </script>
   </body>
