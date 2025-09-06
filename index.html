@@ -154,23 +154,21 @@
     // Replace with your CSV export link
     const sheetUrl = "https://piano-website-server-production.up.railway.app/sheet"; 
 
-    axios.get(sheetUrl)
-      .then(response => {
+   axios.get(sheetUrl)
+  .then(response => {
+    const values = response.data.values; // Array of rows
+    let html = "<ul>";
+    values.slice(1).forEach(row => { // skip headers
+      const [name, date] = row;
+      html += `<li>${name} – ${date}</li>`;
+    });
+    html += "</ul>";
+    document.getElementById("data").innerHTML = html;
+  })
+  .catch(err => {
+    document.getElementById("data").innerText = err.message || err;
+  });
 
-        const entries = response.data.feed.entry;
-        let html = "<ul>";
-        entries.forEach(row => {
-          // Example: get values by column header name (lowercase, no spaces)
-          html += `<li>${name} – ${date}</li>`;
-        });
-        html += "</ul>";
-        document.getElementById("data").innerHTML = html;
-        
-      })
-      .catch(err => {
-        console.error("Error:", err);
-        document.getElementById("data").innerText = err;
-      });
   </script>
   </body>
 </html>
