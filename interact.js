@@ -1,3 +1,5 @@
+console.log('running JS');
+
 function hamburger() {
     const nav = document.querySelector('nav');
     nav.classList.toggle('expand');
