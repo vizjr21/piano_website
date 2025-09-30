@@ -35,4 +35,5 @@ const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sh
   })
   .catch(err => {
     document.getElementById("data").innerText = err.message || err;
+    console.log(err.message);
   });
