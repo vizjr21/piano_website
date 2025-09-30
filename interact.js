@@ -17,6 +17,7 @@ function checkWidth() {
 
 }
 
+/* 
  // Replace with your CSV export link
 const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sheet";
 
@@ -46,3 +47,52 @@ const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sh
     document.getElementById("upcoming").innerText = err.message || err;
     document.getElementById("recent-work").innerText = err.message || err;
   });
+
+  */
+
+  document.addEventListener("DOMContentLoaded", () => {
+  console.log("Running frontend script");
+
+  const sheetUrl = "https://<your-api-id>.execute-api.<region>.amazonaws.com/Prod/sheet";
+
+  axios.get(sheetUrl)
+    .then(response => {
+      // valueRanges contains both tabs
+      const [upcoming, recent] = response.data.valueRanges;
+
+      // ----------------------------
+      // Upcoming Performances
+      // ----------------------------
+      let perfHtml = "<ul>";
+      if (upcoming.values && upcoming.values.length > 1) {
+        upcoming.values.slice(1).forEach(([name, date, location]) => {
+          perfHtml += `<li>${name} – ${date} – ${location}</li>`;
+        });
+      } else {
+        perfHtml += "<li>No upcoming performances</li>";
+      }
+      perfHtml += "</ul>";
+      document.getElementById("upcoming").innerHTML = perfHtml;
+
+      // ----------------------------
+      // Recent Work / Projects
+      // ----------------------------
+      let projHtml = "<ul>";
+      if (recent.values && recent.values.length > 1) {
+        recent.values.slice(1).forEach(([name, date, location, description]) => {
+          projHtml += `<li><strong>${name}</strong> (${date}) – ${location} — ${description}</li>`;
+        });
+      } else {
+        projHtml += "<li>No recent projects</li>";
+      }
+      projHtml += "</ul>";
+      document.getElementById("recent-work").innerHTML = projHtml;
+
+      console.log("Data loaded successfully");
+    })
+    .catch(err => {
+      console.error("Axios error:", err);
+      document.getElementById("upcoming").innerText = "Error loading data";
+      document.getElementById("recent-work").innerText = "Error loading data";
+    });
+});
