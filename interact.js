@@ -23,15 +23,26 @@ const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sh
     // Get events data 
    axios.get(sheetUrl)
   .then(response => {
-    const values = response.data.values; // Array of rows
-    let html = "<ul>";
-    values.slice(1).forEach(row => { // skip headers
-      const [name, date, location] = row;
-      html += `<li>${name} – ${date} - ${location}</li>`;
+    const [upcoming, recent] = response.data.valueRanges;
+
+      // Performances
+    let perfHtml = "<ul>";
+    performances.values.slice(1).forEach(([name, date, location,]) => {
+      perfHtml += `<li>${name} – ${date} - ${location}</li>`;
     });
-    html += "</ul>";
-    document.getElementById("upcoming").innerHTML = html;
+    perfHtml += "</ul>";
+    document.getElementById("upcoming").innerHTML = perfHtml;
+
+
+    // Recent Work
+    let projHtml = "<ul>";
+    projects.values.slice(1).forEach(([name, date, location, description]) => {
+      projHtml += `<li><strong>${name}</strong> (${date}) - ${location} — ${description}</li>`;
+    });
+    projHtml += "</ul>";
+    document.getElementById("recent-work").innerHTML = projHtml;
   })
   .catch(err => {
     document.getElementById("upcoming").innerText = err.message || err;
+    document.getElementById("recent-work").innerText = err.message || err;
   });
