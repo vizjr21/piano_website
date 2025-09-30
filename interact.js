@@ -16,7 +16,7 @@ function checkWidth() {
 }
 
  // Replace with your CSV export link
-    const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sheet";
+const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sheet";
 
     // Get events data 
    axios.get(sheetUrl)
@@ -29,6 +29,7 @@ function checkWidth() {
     });
     html += "</ul>";
     document.getElementById("data").innerHTML = html;
+    console.log('running');
   })
   .catch(err => {
     document.getElementById("data").innerText = err.message || err;
