@@ -1,4 +1,4 @@
-console.log('running JS');
+
 
 function hamburger() {
     const nav = document.querySelector('nav');
@@ -30,10 +30,8 @@ const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sh
       html += `<li>${name} – ${date} - ${location}</li>`;
     });
     html += "</ul>";
-    document.getElementById("data").innerHTML = html;
-    console.log('running');
+    document.getElementById("upcoming").innerHTML = html;
   })
   .catch(err => {
-    document.getElementById("data").innerText = err.message || err;
-    console.log(err.message);
+    document.getElementById("upcoming").innerText = err.message || err;
   });
