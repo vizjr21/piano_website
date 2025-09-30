@@ -27,7 +27,7 @@ const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sh
 
       // Performances
     let perfHtml = "<ul>";
-    performances.values.slice(1).forEach(([name, date, location,]) => {
+    (upcoming.values || []).slice(1).forEach(([name, date, location]) => {
       perfHtml += `<li>${name} – ${date} - ${location}</li>`;
     });
     perfHtml += "</ul>";
@@ -36,7 +36,7 @@ const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sh
 
     // Recent Work
     let projHtml = "<ul>";
-    projects.values.slice(1).forEach(([name, date, location, description]) => {
+     (recent.values || []).slice(1).forEach(([name, date, location, description]) => {
       projHtml += `<li><strong>${name}</strong> (${date}) - ${location} — ${description}</li>`;
     });
     projHtml += "</ul>";
