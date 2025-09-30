@@ -74,20 +74,10 @@ Drown at De Montfort Hall. In addition to performing, Jude writes his own music 
 teaches piano both privately and in schools around the county.
       </p>
       <div class="projects">
-        <h1>Projects</h1>
+        <h1>Recent Work</h1>
         <h3>24 Preludes with Luke Henry</h3>
         <p>
-          Over the last year, Jude has been working with Nashville-based
-          composer, Luke Henry, in creating 24 Preludes for piano. Inspired by
-          the 24 preludes of well-known composers including Bach, Chopin, and
-          Scriabin, Jude and Luke aim to create a set of piano pieces in all 24
-          keys reflecting more recent styles, combining classical, minimalist,
-          blues, and Latin influences. Recently, Jude performed 12 of the
-          nearly-completed set at the Richard Attenborough Centre in Leicester,
-          UK. You can view the performance on his Youtube channel:
-          <a href="https://www.youtube.com/@juderichardson5149"
-            >https://www.youtube.com/@juderichardson5149</a
-          >.
+      <div id="data">Loading...</div>
         </p>
         <h3>Piano Lessons</h3>
         <p>
@@ -143,28 +133,5 @@ teaches piano both privately and in schools around the county.
     </footer>
 
     <script src="interact.js"></script>
-    <script>
-    // Replace with your CSV export link
-    const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sheet";
-
-    // Get events data 
-   axios.get(sheetUrl)
-  .then(response => {
-    const values = response.data.values; // Array of rows
-    let html = "<ul>";
-    values.slice(1).forEach(row => { // skip headers
-      const [name, date, location] = row;
-      html += `<li>${name} – ${date} - ${location}</li>`;
-    });
-    html += "</ul>";
-    document.getElementById("data").innerHTML = html;
-  })
-  .catch(err => {
-    document.getElementById("data").innerText = err.message || err;
-  });
-
-  
-
-  </script>
   </body>
 </html>
