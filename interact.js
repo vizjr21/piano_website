@@ -15,6 +15,7 @@ function checkWidth() {
 
 }
 
+document.addEventListener("DOMContentLoaded", () => {
  // Replace with your CSV export link
 const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sheet";
 
@@ -36,3 +37,4 @@ const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sh
   });
 
   
+})
