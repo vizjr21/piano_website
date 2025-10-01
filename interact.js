@@ -17,39 +17,6 @@ function checkWidth() {
 
 }
 
-/* 
- // Replace with your CSV export link
-const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sheet";
-
-    // Get events data 
-   axios.get(sheetUrl)
-  .then(response => {
-    const [upcoming, recent] = response.data.valueRanges;
-
-      // Performances
-    let perfHtml = "<ul>";
-    (upcoming.values || []).slice(1).forEach(([name, date, location]) => {
-      perfHtml += `<li>${name} – ${date} - ${location}</li>`;
-    });
-    perfHtml += "</ul>";
-    document.getElementById("upcoming").innerHTML = perfHtml;
-
-
-    // Recent Work
-    let projHtml = "<ul>";
-     (recent.values || []).slice(1).forEach(([name, date, location, description]) => {
-      projHtml += `<li><strong>${name}</strong> (${date}) - ${location} — ${description}</li>`;
-    });
-    projHtml += "</ul>";
-    document.getElementById("recent-work").innerHTML = projHtml;
-  })
-  .catch(err => {
-    document.getElementById("upcoming").innerText = err.message || err;
-    document.getElementById("recent-work").innerText = err.message || err;
-  });
-
-  */
-
   document.addEventListener("DOMContentLoaded", () => {
   console.log("Running frontend script");
 
@@ -96,3 +63,20 @@ const sheetUrl = "https://t5sx8gvygh.execute-api.eu-west-2.amazonaws.com/Prod/sh
       document.getElementById("recent-work").innerText = "Error loading data";
     });
 });
+
+ document.getElementById("contact-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
+
+    try {
+      await axios.post("https://<your-api-id>.execute-api.eu-west-2.amazonaws.com/Prod/contact", formData);
+      alert("Message sent!");
+    } catch (err) {
+      console.error(err);
+      alert("Error sending message");
+    }
+  });
