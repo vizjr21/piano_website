@@ -18,18 +18,14 @@ function checkWidth() {
 }
 
   document.addEventListener("DOMContentLoaded", () => {
-  console.log("Running frontend script");
-
   const sheetUrl = "https://vaqfbudggg.execute-api.eu-west-2.amazonaws.com/Prod/sheet";
 
+  // Load Google Sheets content
   axios.get(sheetUrl)
-    .then(response => {
-      // valueRanges contains both tabs
+    .then((response) => {
       const [upcoming, recent] = response.data.valueRanges;
 
-      // ----------------------------
-      // Upcoming Performances
-      // ----------------------------
+      // Upcoming performances
       let perfHtml = "<ul>";
       if (upcoming.values && upcoming.values.length > 1) {
         upcoming.values.slice(1).forEach(([name, date, location]) => {
@@ -41,9 +37,7 @@ function checkWidth() {
       perfHtml += "</ul>";
       document.getElementById("upcoming").innerHTML = perfHtml;
 
-      // ----------------------------
-      // Recent Work / Projects
-      // ----------------------------
+      // Recent work
       let projHtml = "<ul>";
       if (recent.values && recent.values.length > 1) {
         recent.values.slice(1).forEach(([name, date, location, description]) => {
@@ -54,10 +48,8 @@ function checkWidth() {
       }
       projHtml += "</ul>";
       document.getElementById("recent-work").innerHTML = projHtml;
-
-      console.log("Data loaded successfully");
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("Axios error:", err);
       document.getElementById("upcoming").innerText = "Error loading data";
       document.getElementById("recent-work").innerText = "Error loading data";
@@ -75,10 +67,11 @@ document.getElementById("contact-form").addEventListener("submit", async (e) => 
 
   try {
     await axios.post(
-      "https://vaqfbudggg.execute-api.eu-west-2.amazonaws.com/Prod/contact", // <- /contact
+      "https://vaqfbudggg.execute-api.eu-west-2.amazonaws.com/Prod/contact",
       formData
     );
     alert("Message sent!");
+    e.target.reset();
   } catch (err) {
     console.error(err);
     alert("Error sending message");
