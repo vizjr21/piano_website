@@ -73,7 +73,7 @@ function checkWidth() {
     };
 
     try {
-      await axios.post("https://<your-api-id>.execute-api.eu-west-2.amazonaws.com/Prod/contact", formData);
+      await axios.post("https://vaqfbudggg.execute-api.eu-west-2.amazonaws.com/Prod/sheet", formData);
       alert("Message sent!");
     } catch (err) {
       console.error(err);
