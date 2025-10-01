@@ -64,19 +64,23 @@ function checkWidth() {
     });
 });
 
- document.getElementById("contact-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      message: e.target.message.value,
-    };
+// Form submission
+document.getElementById("contact-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    message: e.target.message.value,
+  };
 
-    try {
-      await axios.post("https://vaqfbudggg.execute-api.eu-west-2.amazonaws.com/Prod/sheet", formData);
-      alert("Message sent!");
-    } catch (err) {
-      console.error(err);
-      alert("Error sending message");
-    }
-  });
+  try {
+    await axios.post(
+      "https://vaqfbudggg.execute-api.eu-west-2.amazonaws.com/Prod/contact", // <- /contact
+      formData
+    );
+    alert("Message sent!");
+  } catch (err) {
+    console.error(err);
+    alert("Error sending message");
+  }
+});
