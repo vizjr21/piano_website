@@ -154,3 +154,67 @@ footer > div > h2 {
     height: 600px;
     margin: 5% 5% 0 5%;
 }
+
+form {
+  max-width: 600px;      
+  margin: 0 auto;        /* centers the form */
+  padding: 1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;            
+  padding: 0.75rem;
+  margin-bottom: 1rem;    
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+form textarea {
+  min-height: 150px;      
+  resize: vertical;
+}
+
+form button {
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+/* Mobile-friendly tweak */
+@media (max-width: 480px) {
+  form {
+    padding: 0.5rem;
+  }
+
+  form input,
+  form textarea,
+  form button {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  form button {
+    display: block;
+    width: 100%;            /* full width */
+    border-radius: 0;       /* squared edges like a bar */
+    font-size: 1.1rem;
+    padding: 0.9rem;
+  }
+}
