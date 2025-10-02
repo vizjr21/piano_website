@@ -155,8 +155,7 @@ footer > div > h2 {
     margin: 5% 5% 0 5%;
 }
 
-form {
-  max-width: 600px;      
+form { 
   margin: 0 auto;        /* centers the form */
   padding: 1rem;
 }
