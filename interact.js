@@ -59,6 +59,14 @@ function checkWidth() {
 // Form submission
 document.getElementById("contact-form").addEventListener("submit", async (e) => {
   e.preventDefault();
+
+   // 🛡️ Anti-bot honeypot check
+  const honeypot = e.target.company.value;
+  if (honeypot) {
+    console.warn("Spam submission detected — blocked.");
+    return; // Stop bots silently
+  }
+  
   const formData = {
     name: e.target.name.value,
     email: e.target.email.value,
