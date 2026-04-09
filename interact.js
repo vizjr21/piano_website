@@ -32,7 +32,7 @@ function checkWidth() {
           perfHtml += `<li>${name} – ${date} – ${location}</li>`;
         });
       } else {
-        perfHtml += "<li>No upcoming performances</li>";
+        perfHtml += "<li>Updates coming soon!</li>";
       }
       perfHtml += "</ul>";
       document.getElementById("upcoming").innerHTML = perfHtml;
