@@ -26,7 +26,7 @@ function checkWidth() {
       const [upcoming, recent] = response.data.valueRanges;
 
       // Upcoming performances
-      let perfHtml = "<ul>";
+     /*  let perfHtml = "<ul>";
       if (upcoming.values && upcoming.values.length > 1) {
         upcoming.values.slice(1).forEach(([name, date, location]) => {
           perfHtml += `<li>${name} – ${date} – ${location}</li>`;
@@ -35,7 +35,7 @@ function checkWidth() {
         perfHtml += "<li>Updates coming soon!</li>";
       }
       perfHtml += "</ul>";
-      document.getElementById("upcoming").innerHTML = perfHtml;
+      document.getElementById("upcoming").innerHTML = perfHtml; */
 
       // Recent work
       let projHtml = "<ul>";
